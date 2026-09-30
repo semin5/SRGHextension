@@ -1,3 +1,19 @@
 spring:
   application:
     name: extension
+  datasource:
+    url: ${DB_URL:jdbc:mysql://192.168.1.76:3307/srghextension?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul}
+    username: ${DB_USERNAME:semin5}
+    password: ${DB_PASSWORD}
+    hikari:
+      connection-timeout: 5000
+      validation-timeout: 3000
+  web:
+    resources:
+      cache:
+        period: 0s
+server:
+  port: ${PORT:3014}
+  servlet:
+    context-path: /extension
+  forward-headers-strategy: framework

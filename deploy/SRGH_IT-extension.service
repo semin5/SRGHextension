@@ -1,0 +1,19 @@
+[Unit]
+Description=SRGH IT Extension Directory (Spring Boot)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sarangit
+Group=sarangit
+WorkingDirectory=/opt/SRGH_IT/extension
+Environment=PORT=3014
+EnvironmentFile=/etc/SRGH_IT/extension.env
+ExecStart=/usr/bin/java -Xms128m -Xmx384m -jar /opt/SRGH_IT/extension/extension.jar
+Restart=always
+RestartSec=5
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
