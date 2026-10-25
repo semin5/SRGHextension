@@ -26,8 +26,8 @@ public class ExtensionController {
                     WHEN '5동[경동]' THEN 4 WHEN '6동[성포]' THEN 5 WHEN '0' THEN 6 ELSE 7
                   END,
                   CASE
-                    WHEN floor REGEXP '^[0-9]+$' THEN CAST(floor AS UNSIGNED)
-                    WHEN UPPER(floor) LIKE 'B%' THEN -CAST(SUBSTRING(floor, 2) AS UNSIGNED)
+                    WHEN floor ~ '^[0-9]+$' THEN CAST(floor AS INTEGER)
+                    WHEN UPPER(floor) LIKE 'B%' THEN -CAST(SUBSTRING(floor, 2) AS INTEGER)
                     ELSE 999
                   END,
                   extension_number

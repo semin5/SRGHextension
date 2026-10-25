@@ -57,3 +57,6 @@ tbody tr:hover td { background: #edf6ff; }
   .search-box { width: 100%; }
   .count { font-size: 12px; }
 }
+
+/* Keep the fixed filter and table heading flat while scrolling. */
+.sticky-tools, th { box-shadow: none; }
